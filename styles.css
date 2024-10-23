@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    overflow: hidden;
+    color: #e94560;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    width: 90%;
+    animation: floatIn 0.8s ease-out;
+}
+
+h1 {
+    color: #e94560;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    animation: rotateIn 1s ease-out;
+}
+
+#game-area, #name-input-area {
+    margin-bottom: 2rem;
+}
+
+#question {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    animation: scaleIn 0.5s ease-out;
+}
+
+input[type="number"], input[type="text"] {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    width: 200px;
+    margin-right: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus, input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    animation: glow 1.5s infinite alternate;
+}
+
+button {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #e94560;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.1s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #d13652;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+#stats p {
+    animation: floatIn 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+#stats p:nth-child(1) { animation-delay: 0.1s; }
+#stats p:nth-child(2) { animation-delay: 0.2s; }
+#stats p:nth-child(3) { animation-delay: 0.3s; }
+#stats p:nth-child(4) { animation-delay: 0.4s; }
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatIn {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes rotateIn {
+    0% { transform: rotate(-10deg) scale(0.8); opacity: 0; }
+    100% { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(233, 69, 96, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(233, 69, 96, 0.8); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+#leaderboard {
+    margin-top: 2rem;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+#leaderboard h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+#leaderboard-list {
+    padding-left: 2rem;
+    color: #fff;
+}
+
+#leaderboard-list li {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    animation: floatIn 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+#leaderboard-list li:nth-child(1) { animation-delay: 0.1s; }
+#leaderboard-list li:nth-child(2) { animation-delay: 0.2s; }
+#leaderboard-list li:nth-child(3) { animation-delay: 0.3s; }
+/* ... continue for other list items ... */
+
+#logout {
+    background-color: #f44336;
+    margin-top: 1rem;
+}
+
+#logout:hover {
+    background-color: #d32f2f;
+}
+
+#difficulty-level {
+    font-weight: bold;
+    color: #ffd700; /* Gold color for emphasis */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+#wrong-answer-x {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 300px; /* Increased from 150px */
+    color: #ff0000;
+    font-weight: bold;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    font-family: 'Arial Black', sans-serif;
+}
+
+#wrong-answer-x.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    animation: wrongPulse 0.5s ease-in-out;
+}
+
+@keyframes wrongPulse {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+#wrong-answer-x.hidden {
+    display: none;
+}
+
+@keyframes shakeArea {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.shake-area {
+    animation: shakeArea 0.5s ease-in-out;
+}
+
+#admin-panel {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+#admin-panel h2 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+}
+
+#admin-panel button {
+    margin: 0.5rem;
+    background-color: #4CAF50;
+}
+
+#admin-panel button:hover {
+    background-color: #45a049;
+}
+
+#reset-global-leaderboard {
+    background-color: #f44336;
+}
+
+#reset-global-leaderboard:hover {
+    background-color: #d32f2f;
+}
